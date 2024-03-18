@@ -12,7 +12,7 @@
 }
 
 .links:not(:last-child) {
-   
+    margin-bottom: 2em;
 }
 
 .linksList {
@@ -26,8 +26,27 @@
 .link {
     text-decoration: none;
     color: var(--footer-text);
+    position: relative;
 }
 
+
+.link::before 
+    {
+        content: '';
+        background-color: white;
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        transition: transform 300ms;
+        transform-origin: 0%;
+        transform: scaleX(0);
+    }
+
+    .link:hover::before
+    {
+        transform: scale(1);
+    }
 
 @media (min-width: 786px) {
 
@@ -35,6 +54,7 @@
         display: flex;
         align-items: start;
         gap: 12.5%;
+        text-align: left;
     }
     .logo {
         margin-bottom: 0;
