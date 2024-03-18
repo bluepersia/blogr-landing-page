@@ -6,7 +6,9 @@
     padding: 3.56em 6% 9.6em;
     text-align: center;
     color: white;
-    border-bottom-left-radius: 20%;
+    border-bottom-left-radius: 100px;
+    z-index: 11;
+    position: relative;
 }
 
 .top {
@@ -106,4 +108,12 @@
         margin-top: 3.37em;
     }
    
+}
+
+
+@media (min-width: 1200px)
+{
+    .header {
+        padding: 3.9em 11% 9.81em;
+    }
 }

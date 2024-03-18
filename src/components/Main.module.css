@@ -1,0 +1,148 @@
+.main {
+    text-align: center;
+    color: var(--headings)
+}
+
+.section1 {
+    padding: 6.8em 6.9% 17em;
+}
+.section1imgMobile{
+    width: 100%;
+    margin-bottom: 3.5em;
+}
+
+
+.subtitle {
+    font-size: 1.7rem;
+}
+
+.body.gray {
+    color: var(--bodycopy);
+}
+
+
+.section2 {
+    background: url(../images/bg-pattern-circles.svg) no-repeat top -20em center, linear-gradient(var(--gradient-2-a), var(--gradient-2-b));
+    background-size: cover;
+    position: relative;
+    padding: 14em 9.6% 7.6em;
+    color: white;
+    border-top-right-radius: 100px;
+}
+
+.section2img {
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 470px;
+    
+}
+
+.section3 {
+    padding: 4.8em 9.6% 6.5em;
+}
+
+.section3imgMobile {
+    width: 100%;
+}
+
+@media (min-width: 786px)
+{
+    .main {
+        text-align: left;
+    }
+
+    .title {
+        text-align: center;
+    }
+    .section2 {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        padding: 5em 0;
+    }
+
+    .imgPhonesWrapper {
+        position: relative;
+        width: 50%;
+    }
+
+    .section2img {
+        top: 1em;
+    }
+
+   
+
+    .section2content {
+        width: 47%;
+    }
+    .section2 .title{
+        text-align: left;
+    }
+
+
+    .section3 {
+        display: flex;
+        align-items: start;
+        padding: 19em 9.6% 19em;
+    }
+
+    .section3imgWrapper {
+        width: 50%;
+        position: relative;
+    }
+    
+    .section3imgDesktop {
+        position:absolute;
+        width: 140%;
+        left:-65%;
+        transform: translateY(-30%);
+    }
+
+    .section3text {
+        width: 50%;
+    }
+}
+
+
+@media (min-width: 1200px)
+{
+
+   
+
+    
+    .section1{
+        padding: 10.2em 11%  16em;
+    }
+    .section1content {
+        display: flex;
+        align-items: stretch;
+        gap: 2em;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+    .section1 .title {
+        margin-bottom: 3.5em;
+    }
+    .section1imgDesktopWrapper, .section1text {
+        width: 50%;
+    }
+
+    .section1imgDesktopWrapper
+{
+    height: 100%;
+    position: relative;
+}
+    .section1imgDesktop {
+        position: absolute;
+        top: 0px;
+        right: -50%;
+        width: 140%;
+        transform: translateY(-30%);
+        z-index: 10;
+    }
+}
