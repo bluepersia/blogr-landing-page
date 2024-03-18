@@ -58,6 +58,8 @@ img {
   font-family: inherit;
   font-size: inherit;
   border-radius: 24px;
+  transition: background-color 300ms;
+  cursor:pointer;
 }
 
 .btn-white 
@@ -65,4 +67,8 @@ img {
   border: none;
   background-color: white;
   color: var(--CTA-text);
+}
+
+.btn-white:hover {
+  background-color: rgba(255,255,255,40%);
 }

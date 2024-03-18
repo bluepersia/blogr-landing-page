@@ -43,7 +43,44 @@
     color: white;
 }
 
+.learnBtn:hover {
+    background-color: white;
+    color: var(--CTA-text);
+}
 
+
+
+.navMenu {
+    transition: opacity 300ms;
+    opacity: 0%;
+    pointer-events: none;
+    top: 20%;
+    text-align: left;
+    background-color: white;
+    padding: 1.56em 2em;
+}
+
+.navMenu.open {
+    opacity: 100%;
+    pointer-events: all;
+}
+.navMenuList {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .7em
+}
+.navMenuLink {
+    text-decoration: none;
+    color: var(--headings);
+    transition: font-weight 300ms, color 300ms;
+}
+
+.navMenuLink:hover {
+    font-weight: bold;
+    color: black;
+}
 
 @media (min-width: 786px)
 {
@@ -67,6 +104,23 @@
         color: white;
         text-decoration: none;
         position: relative;;
+    }
+    .navlink::before 
+    {
+        content: '';
+        background-color: white;
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        transition: transform 300ms;
+        transform-origin: 50%;
+        transform: scaleX(0);
+    }
+
+    .navlink:hover::before
+    {
+        transform: scale(1);
     }
     .navlink::after 
     {
