@@ -29,13 +29,14 @@
 body {
   margin: 0;
   font-family: var(--font-1);
+  overflow-x: hidden;
 }
 
 p {
   line-height: 1.6;
 }
 img {
-  max-width: 100%;
+  max-width: none;
 }
 
 * {
