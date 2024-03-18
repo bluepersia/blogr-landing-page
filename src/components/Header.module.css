@@ -82,6 +82,111 @@
     color: black;
 }
 
+
+.btnMenu, .btnClose {
+    cursor: pointer;
+}
+.mobileMenu {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    background-color: white;
+    opacity: 0%;
+    pointer-events: none;
+    transition: opacity 300ms, transform 300ms;
+    color: var(--headings);
+    font-size: 1.2rem;
+    padding: 2em 6%;
+    border-radius: 8px;
+    width: 85.3%;
+    max-width: 320px;
+    box-shadow: 5px 10px 10px rgba(0,0,0,20%);
+    transform:translate(-50%, -100%);
+}
+.mobileMenu.open {
+    transform: translate(-50%, 0%);
+    opacity: 100%;
+    pointer-events: all;
+}
+
+.mobileNavList {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    border-bottom: solid 1px rgba(0,0,0,10%);
+    padding-bottom: 1.5em;
+
+}
+
+.mobileNavLink {
+    position: relative;
+    cursor: pointer;
+}
+
+.mobileNavLink.open {
+    color: var(--bodycopy);
+}
+.mobileNavLink::after 
+{
+    content: '';
+    background: url(../images/icon-arrow-dark.svg);
+    width: 10px;
+    height: 7px;
+    position: absolute;
+    top: 50%;
+    margin-left: .5em;
+    transform: translateY(-50%);
+    transform-origin: 50 50%;
+}
+.mobileNavLink.open::after 
+{
+    transform: rotate(180deg);
+}
+
+.mobileNavLinkList {
+    list-style: none;
+    padding-left: 0;
+    background-color: rgba(0,0,0,10%);
+    width: 100%;
+    padding: 1.87em 0;
+    border-radius: 8px;display: flex;
+    flex-direction: column;
+    gap: 1.75em;
+}
+
+
+.mobileNavLinkListLink {
+    cursor: pointer;
+    color: var(--bodycopy);
+}
+
+
+.mobileLoginBtns {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 2.3em;
+}
+
+.mobileLoginBtn {
+    composes:btn from '../App.css';
+    background: none;
+    border: none;
+    color: var(--bodycopy);
+}
+
+.mobileRegisterBtn {
+    composes: btn from '../App.css';
+    background: linear-gradient(90deg, var(--gradient-1-a), var(--gradient-1-b));
+    border: none;
+    color: white;
+}
+
+
+
 @media (min-width: 786px)
 {
     .header {

@@ -1,6 +1,7 @@
 import styles from './Header.module.css';
 import imgLogo from '../images/logo.svg';
 import imgMenu from '../images/icon-hamburger.svg';
+import imgClose from '../images/icon-close.svg';
 import { useEffect, useRef, useState } from 'react';
 
 enum OpenEnum {
@@ -38,19 +39,18 @@ export default function Header(): JSX.Element {
     };
   }, []);
 
-  useEffect(() => {
-    console.log(open);
-  }, [open]);
-
   function openMenu(type: OpenEnum) {
-    const data = {
+    setOpen((data) => ({
+      mobile: data.mobile,
       product: false,
       company: false,
       connect: false,
-      mobile: false,
-    };
-    data[type] = true;
-    setOpen(data);
+      [type]: true,
+    }));
+  }
+
+  function closeMenu(type: OpenEnum) {
+    setOpen((data) => ({ ...data, [type]: false }));
   }
 
   function closeAllMenus() {
@@ -109,14 +109,16 @@ export default function Header(): JSX.Element {
           <button className={styles.registerBtn + ' btn-white'}>Sign Up</button>
         </div>
 
-        <img
-          onClick={(e: React.MouseEvent) => {
-            e.stopPropagation();
-            openMenu(OpenEnum.Mobile);
-          }}
-          src={imgMenu}
-          className={styles.imgMenu + ' mobile'}
-        />
+        {(!open.mobile && (
+          <img
+            onClick={(e: React.MouseEvent) => {
+              e.stopPropagation();
+              openMenu(OpenEnum.Mobile);
+            }}
+            src={imgMenu}
+            className={styles.btnMenu + ' mobile'}
+          />
+        )) || <img src={imgClose} className={styles.btnClose} />}
       </div>
       <div className={styles.intro}>
         <h1 className={styles.title}>A modern publishing platform</h1>
@@ -141,7 +143,8 @@ export default function Header(): JSX.Element {
           ' ' +
           styles.navMenuProduct +
           ' ' +
-          (open.product && styles.open)
+          (open.product && styles.open) +
+          ' tablet desktop'
         }
       >
         <ul className={styles.navMenuList}>
@@ -183,7 +186,8 @@ export default function Header(): JSX.Element {
           ' ' +
           styles.navMenuCompany +
           ' ' +
-          (open.company && styles.open)
+          (open.company && styles.open) +
+          ' tablet desktop'
         }
       >
         <ul className={styles.navMenuList}>
@@ -220,7 +224,8 @@ export default function Header(): JSX.Element {
           ' ' +
           styles.navMenuConnect +
           ' ' +
-          (open.connect && styles.open)
+          (open.connect && styles.open) +
+          ' tablet desktop'
         }
       >
         <ul className={styles.navMenuList}>
@@ -241,6 +246,116 @@ export default function Header(): JSX.Element {
           </li>
         </ul>
       </nav>
+
+      <div
+        onClick={(e: React.MouseEvent) => e.stopPropagation()}
+        className={styles.mobileMenu + ' ' + (open.mobile && styles.open)}
+      >
+        <nav>
+          <ul className={styles.mobileNavList}>
+            <li>
+              <a
+                onClick={() =>
+                  open.product
+                    ? closeMenu(OpenEnum.Product)
+                    : openMenu(OpenEnum.Product)
+                }
+                className={
+                  styles.mobileNavLink + ' ' + (open.product && styles.open)
+                }
+              >
+                Product
+              </a>
+            </li>
+            {open.product && (
+              <li>
+                <ul className={styles.mobileNavLinkList}>
+                  <li>
+                    <a className={styles.mobileNavLinkListLink}>Overview</a>
+                  </li>
+                  <li>
+                    <a className={styles.mobileNavLinkListLink}>Pricing</a>
+                  </li>
+                  <li>
+                    <a className={styles.mobileNavLinkListLink}>Marketplace</a>
+                  </li>
+                  <li>
+                    <a className={styles.mobileNavLinkListLink}>Features</a>
+                  </li>
+                  <li>
+                    <a className={styles.mobileNavLinkListLink}>Integrations</a>
+                  </li>
+                </ul>
+              </li>
+            )}
+            <li>
+              <a
+                onClick={() =>
+                  open.company
+                    ? closeMenu(OpenEnum.Company)
+                    : openMenu(OpenEnum.Company)
+                }
+                className={
+                  styles.mobileNavLink + ' ' + (open.company && styles.open)
+                }
+              >
+                Company
+              </a>
+              {open.company && (
+                <li>
+                  <ul className={styles.mobileNavLinkList}>
+                    <li>
+                      <a className={styles.mobileNavLinkListLink}>About</a>
+                    </li>
+                    <li>
+                      <a className={styles.mobileNavLinkListLink}>Team</a>
+                    </li>
+                    <li>
+                      <a className={styles.mobileNavLinkListLink}>Blog</a>
+                    </li>
+                    <li>
+                      <a className={styles.mobileNavLinkListLink}>Careers</a>
+                    </li>
+                  </ul>
+                </li>
+              )}
+            </li>
+            <li>
+              <a
+                onClick={() =>
+                  open.connect
+                    ? closeMenu(OpenEnum.Connect)
+                    : openMenu(OpenEnum.Connect)
+                }
+                className={
+                  styles.mobileNavLink + ' ' + (open.connect && styles.open)
+                }
+              >
+                Connect
+              </a>
+              {open.connect && (
+                <li>
+                  <ul className={styles.mobileNavLinkList}>
+                    <li>
+                      <a className={styles.mobileNavLinkListLink}>Contact</a>
+                    </li>
+                    <li>
+                      <a className={styles.mobileNavLinkListLink}>Newsletter</a>
+                    </li>
+                    <li>
+                      <a className={styles.mobileNavLinkListLink}>LinkedIn</a>
+                    </li>
+                  </ul>
+                </li>
+              )}
+            </li>
+          </ul>
+        </nav>
+        <div className={styles.mobileLoginBtns}>
+          <button className={styles.mobileLoginBtn}>Login</button>
+          <button className={styles.mobileRegisterBtn}>Sign Up</button>
+        </div>
+      </div>
     </header>
   );
 }
