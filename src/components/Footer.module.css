@@ -1,0 +1,47 @@
+@import '../App.css';
+
+.footer {
+    background-color: var(--footer-background);
+    color: white;
+    text-align: center;
+    border-top-right-radius: 100px;
+    padding: 4.6em 6%;
+}
+.logo {
+    margin-bottom: 2em;;
+}
+
+.links:not(:last-child) {
+   
+}
+
+.linksList {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .4em;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--footer-text);
+}
+
+
+@media (min-width: 786px) {
+
+    .footer {
+        display: flex;
+        align-items: start;
+        gap: 12.5%;
+    }
+    .logo {
+        margin-bottom: 0;
+    }
+
+    .links {
+        margin: 0;
+    }
+    
+}

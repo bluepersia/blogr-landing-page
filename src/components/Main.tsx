@@ -66,9 +66,9 @@ export default function Main(): JSX.Element {
       <section className={styles.section3}>
         <img
           src={imgLaptopMobile}
-          className={styles.section3imgMobile + ' mobile'}
+          className={styles.section3imgMobile + ' mobile tablet'}
         />
-        <div className={styles.section3imgWrapper + ' tablet desktop'}>
+        <div className={styles.section3imgWrapper + ' desktop'}>
           <img src={imgLaptopDesktop} className={styles.section3imgDesktop} />
         </div>
 
