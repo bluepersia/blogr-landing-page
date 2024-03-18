@@ -1,0 +1,109 @@
+@import '../App.css';
+
+.header {
+    background: url(../images/bg-pattern-intro-mobile.svg) no-repeat 30% 50%, linear-gradient(180deg, var(--gradient-1-a), var(--gradient-1-b));
+    background-size: 300%;
+    padding: 3.56em 6% 9.6em;
+    text-align: center;
+    color: white;
+    border-bottom-left-radius: 20%;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.intro {
+    padding-top: 7.6em;
+}
+
+
+
+
+.introBtns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1em;
+}
+
+.startBtn {
+    composes: btn from '../App.css';
+
+}
+
+.learnBtn {
+    composes: btn from '../App.css';
+    background-color: transparent;
+    border: solid 1px white;
+    color: white;
+}
+
+
+
+@media (min-width: 786px)
+{
+    .header {
+        background: url(../images/bg-pattern-intro-desktop.svg) no-repeat 20%, linear-gradient(180deg, var(--gradient-1-a), var(--gradient-1-b));
+        background-size: 220%;
+    }
+    .top {
+        justify-content: start;
+        gap: 4%;
+    }
+
+    .navlist {
+        display: flex;
+        list-style: none;
+        padding-left: 0;
+        gap: 3em;
+    }
+
+    .navlink {
+        color: white;
+        text-decoration: none;
+        position: relative;;
+    }
+    .navlink::after 
+    {
+        content: '';
+        background: url(../images/icon-arrow-light.svg);
+        width: 10px;
+        height: 7px;
+        position: absolute;
+        top: 50%;
+        margin-left: .5em;
+        transform: translateY(-50%);
+    }
+
+    .loginBtns {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loginBtn {
+        composes: btn from '../App.css';
+        background:none;
+        border:none;
+        color: white;
+    }
+
+    .registerBtn {
+        composes: btn from '../App.css';
+    }
+
+
+    .title {
+        font-size: 3rem;
+        margin-bottom: .4em;
+    }
+
+    .introBtns {
+        margin-top: 3.37em;
+    }
+   
+}
