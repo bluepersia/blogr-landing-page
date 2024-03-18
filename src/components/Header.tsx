@@ -1,12 +1,13 @@
 import styles from './Header.module.css';
 import imgLogo from '../images/logo.svg';
+import imgMenu from '../images/icon-hamburger.svg';
 
 export default function Header(): JSX.Element {
   return (
     <header className={styles.header}>
       <div className={styles.top}>
         <img src={imgLogo} className={styles.logo} />
-        <nav>
+        <nav className='tablet desktop'>
           <ul className={styles.navlist}>
             <li>
               <a href='#' className={styles.navlink}>
@@ -25,10 +26,12 @@ export default function Header(): JSX.Element {
             </li>
           </ul>
         </nav>
-        <div className={styles.loginBtns}>
+        <div className={styles.loginBtns + ' tablet desktop'}>
           <button className={styles.loginBtn}>Login</button>
           <button className={styles.registerBtn + ' btn-white'}>Sign Up</button>
         </div>
+
+        <img src={imgMenu} className={styles.imgMenu + ' mobile'} />
       </div>
       <div className={styles.intro}>
         <h1 className={styles.title}>A modern publishing platform</h1>
